@@ -1,0 +1,35 @@
+
+from aqi_calculator import calculate_aqi
+
+def read_sensor_data(file_path):
+    data = {}
+
+    with open(file_path, 'r') as file:
+        for line in file:
+            key, value = line.strip().split("=")
+            data[key] = float(value)
+
+    return data
+
+
+def reflex_agent(sensor_data):
+    pm25 = sensor_data.get("PM2.5", 0)
+
+    aqi_category, message = calculate_aqi(pm25)
+
+    print("\n--- Air Quality Monitoring System ---")
+    print("Sensor Data:", sensor_data)
+    print("\nAQI Category:", aqi_category)
+    print("Health Message:", message)
+
+
+def main():
+    file_path = "sensors_data.txt"
+
+    sensor_data = read_sensor_data(file_path)
+
+    reflex_agent(sensor_data)
+
+
+if __name__ == "__main__":
+    main()
