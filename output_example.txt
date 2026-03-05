@@ -1,0 +1,6 @@
+--- Air Quality Monitoring System ---
+
+Sensor Data: {'PM2.5': 85.0, 'PM10': 120.0, 'CO': 1.2, 'NO2': 40.0, 'SO2': 15.0}
+
+AQI Category: Moderate
+Health Message: Acceptable air quality.
